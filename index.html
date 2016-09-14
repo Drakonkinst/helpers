@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     
     <title>Helpers! by Drakonkinst</title>
     
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>Hello, world!</p>
+    <div id="dictionary__container">
+		<div id="dictionary">
+			<header class="dictionary-header">
+				<h1>Dictionary/Vocabulary Helper</h1>
+				<p>This script will open inputted words in an online dictionary.</p>
+				<p><strong>WARNING : </strong>You may need to enable popups for this website to function correctly, as opening another window is considered a popup.</p>
+				<p><i>This site is a work in progress, and may not function to a suitable quality level. Use at your own discretion.</i></p>
+			</header>
+			<hr>
+			<div id="dictionary-selection">
+				<p>Select a dictionary to use. Merraim-Webster is detailed, Ninjawords is fast, and Dictionary.com makes for a nice medium.</p>
+				<select id="dictionary-select">
+					<option>Dictionary.com (www.dictionary.com)</option>
+					<option>Ninjawords (www.ninjawords.com)</option>
+					<option>Merraim-Webster Dictionary and Thesaurus (www.merraim-webster.com)</option>
+				</select>
+			</div>
+			<br>
+			<div id="dictionary-input__container">
+				<p>Enter your words here, separated by spaces. (ex: one two three four) Press Submit or the ENTER key to search the words.</p>
+				<input type="text" id="dictionary-input" placeholder="Write your words here!" onkeypress="isEnter(event,'dictionary');"></input>
+				<button onclick="searchWords();">Submit</button>
+				<div id="dictionary-input__result"></div>
+			</div>
+		</div>
+	</div>
     <script src="main.js"></script>
   </body>
 </html>

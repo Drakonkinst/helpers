@@ -1,17 +1,20 @@
 /*
- * This stuff is really crappy right now.
- *
- * I'm working on it.
- *  - Drakonkinst
+All this code is copyright Drakonkinst, 2016.
+
+Hosted on Github : https://drakonkinst.github.io/helpers/
+	- Github Project: https://github.com/Drakonkinst/helpers
 */
 
+
+ 
 /* Misc Helper Functions */
+
 function l(elementId)
 {
 	return document.getElementById(elementId);
 }
 
-function createElement(parentElement,elementType,elementText,elementId,elementClass)
+function createElement(parentElement,elementType,elementText,elementId,elementClass,elementInnerHTML)
 {
 	var newElement, newElementText;
 	newElement = document.createElement(elementType);
@@ -29,11 +32,35 @@ function createElement(parentElement,elementType,elementText,elementId,elementCl
 	{
 		newElement.className = elementClass;
 	}
+	if(elementInnerHTML)
+	{
+		newElement.innerHTML = elementInnerHTML;
+	}
 	if(!parentElement) {
 		return debug("ERROR : Element creation failed [parent="+parentElement+" type="+elementType+" text="+elementText+" id="+elementId+" class="+elementClass+"]");
 	}
 	return parentElement.appendChild(newElement);
 }
+
+
+
+/* Initialization */
+
+var dictionaryList = [
+	["Dictionary.com", "Dictionary.com (www.dictionary.com)", "dictionary.com/browse/", false],
+	["Ninjawords", "Ninjawords (www.ninjawords.com)", "ninjawords.com/", true],
+	["Merraim-Webster Dictionary and Thesaurus", "Merraim-Webster Dictionary and Thesaurus (www.merraim-webster.com)", "merraim-webster.com/dictionary", false]
+];
+
+var wordListImports = [
+	["vocab-word-list-1", "acetic clandestine cosmic devolve effete ensemble exhume fusillade infraction lapidary mace meretricious opulent paregoric refractory tactile tocsin tribulation"],
+	["vocab-word-list-2", "animalcule collateral defray disconsolate emeritus equable foment impeach insipid larint maestro meteoric oscillate parole rheumy temporize trajectory vibrant"],
+	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"]
+];
+
+
+
+/* Functions */
 
 function isEnter(windowEvent, loc)
 {
@@ -43,58 +70,102 @@ function isEnter(windowEvent, loc)
 	}
 }
 
-/* Functions */
+function setDictResult(resultId,resultClass,resultInnerHTML,resultOnClick)
+{
+	resultId = resultId || "";
+	resultClass = resultClass || "";
+	resultInnerHTML = resultInnerHTML || "";
+	l("dictionary-input__result").innerHTML = "";
+	createElement(l("dictionary-input__result"),"span","",resultId,resultClass,resultInnerHTML);
+	if(resultOnClick)
+	{
+		l(resultId).onclick = function()
+		{
+			resultOnClick();
+		};
+	}
+}
+
 function getDictName()
 {
-	var l = document.getElementById("dictionary-select");
-	var dictName = l.options[l.selectedIndex].innerHTML;
-	switch(dictName)
+	var i, l, dictName;
+	l = document.getElementById("dictionary-select");
+	dictName = l.options[l.selectedIndex].innerHTML;
+	for(i = 0; i < dictionaryList.length; i++)
 	{
-		case 'Dictionary.com (www.dictionary.com)':
-			return "dictionary.com/browse/"
-		break;
-		case 'Ninjawords (www.ninjawords.com)':
-			return "ninjawords.com/"
-		break;
-		case 'Merraim-Webster Dictionary and Thesaurus (www.merraim-webster.com)':
-			return "merriam-webster.com/dictionary/"
-		break;
-		default:
-			return;
-		break;
+		if(dictName == dictionaryList[i][1])
+		{
+			return dictionaryList[i];
+		}
 	}
 }
 
 function searchWords()
 {
-	if(document.getElementById("dictionary-input").value)
+	if(document.getElementById("dictionary-input__text-area").value)
 	{
-		var i;
-		var wordList = document.getElementById("dictionary-input").value.split(" ");
-		var site = getDictName();
-		if(site != "ninjawords.com/")
+		var i, wordList, selectedDict, siteId, siteName;
+		wordList = document.getElementById("dictionary-input__text-area").value.split(" ");
+		selectedDict = getDictName();
+		siteId = selectedDict[2];
+		siteName = selectedDict[0];
+		isSpecial = selectedDict[3];
+		if(!isSpecial)
 		{
-			l("dictionary-input__result").innerHTML = "";
-			createElement(l("dictionary-input__result"),"span","Click to search the words!","dictionary-input__link","");
-			l("dictionary-input__link").onclick = function() {
+			setDictResult("dictionary-input__link","inverted-button","Search <strong>[ "+wordList.join(", ")+" ]</strong> in the dictionary <strong>"+siteName+"</strong>",function()
+			{
 				for(i = 0; i < wordList.length; i++)
 				{
-					window.open("http://www."+site+wordList[i]);
+					window.open("http://www."+siteId+wordList[i]);
 				}
 				l("document-input__result").innerHTML = "";
-			};
+			});
+		} else if(isSpecial)
+		{
+			setDictResult("dictionary-input__link","inverted-button","Search <strong>[ "+wordList.join(", ")+" ] </strong> in the dictionary <strong>"+siteName+"</strong>",function()
+			{
+				var str = "http://"+siteId+wordList[0];
+				for(i = 0; i < wordList.length - 1; i++)
+				{
+					str += ","+wordList[i + 1];
+				}
+				window.open(str);
+			}
+			);
 		} else
 		{
-			var str = "http://"+site+wordList[0];
-			for(i = 0; i < wordList.length - 1; i++)
-			{
-				str += ","+wordList[i + 1];
-			}
-			window.open(str);
+			setDictResult("","dictionary-input__fail","Dictionary not recognized! [This error is not normal. Please contact Drakonkinst at (drakonkinstmc at gmail dot com) with a report of this bug.]");
 		}
 	} else
 	{
-		l("dictionary-input__result").innerHTML = "";
-		createElement(l("dictionary-input__result"),"span","You must enter something!","","");
+		setDictResult("","dictionary-input__fail","You must enter something!");
 	}
 }
+
+
+
+/* Post-Initialization */
+
+function Launch()
+{
+	var wordImportList = document.getElementsByClassName("dictionary-import__import");
+	for(var i = 0; i < wordImportList.length; i++)
+	{
+		wordImportList[i].onclick = function()
+		{
+			for(var i = 0; i < wordListImports.length; i++)
+			{
+				if(wordListImports[i][0] == this.id)
+				{
+					l("dictionary-input__text-area").value = wordListImports[i][1];
+				}
+			}
+		};
+	}
+}
+Launch();
+
+
+
+
+

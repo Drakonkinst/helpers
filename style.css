@@ -1,1 +1,148 @@
+html {
+	height: 100%;
+	width: 100%;
+	font-size: 16px;
+	background-color: #d3fbfa;
+	font-family: "Ubuntu";
+	position: relative;
+	
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+.big-panel {
+	background-color: #fff;
+	padding: 10px;
+	padding-bottom: 50px;
+	border-radius: 5px;
+	box-shadow: 6px 5px #a4e4e4;
+	min-width: 700px;
+	margin: auto;
+}
+
+.header {
+	font-family: "Roboto Slab";
+}
+
+.header-title {
+	border-bottom: 3px solid #a4e4e4;
+	max-width: 470px;
+}
+
+.header__note {
+	font-size: 12px;
+	color: #808080;
+}
+
+.header__warning {
+	border: 1px solid black;
+	padding: 10px;
+	font-size: 14px;
+}
+
+hr.default {
+	border: 0;
+    height: 1px;
+    background-color: #000;
+	margin: 15px 5px;
+}
+
+#dictionary-select, #dictionary-input__text-area {
+	border: 2px solid #a4e4e4;
+	border-radius: 5px;
+	font-family: monospace;
+	
+}
+
+#dictionary-input__text-area {
+	width: 510px;
+	height: 50px;
+	max-width: 870px;
+	max-height: 400px;
+	margin: 0 2px 4px 0;
+}
+
+.dictionary-input__monospace {
+	font-family: monospace;
+}
+
+#dictionary-input__result {
+	font-size: 14px;
+}
+
+#dictionary-input__submit {
+	bottom: 20px;
+}
+
+.dictionary-input__fail {
+	color: #ff0000;
+}
+
+.inverted-button {
+	position: relative;
+	background-color: #80bebe;
+	bottom: 16px;
+	color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-family: "Roboto Slab";
+    font-size: 16px;
+    border: 2px solid #a4e4e4;
+	border-radius: 5px;
+	-webkit-transition: background-color 0.4s, color 0.4s;
+    -moz-transition: background-color 0.4s, color 0.4s;
+    -o-transition: background-color 0.4s, color 0.4s;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.inverted-button:hover {
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+}
+
+.button {
+	position: relative;
+	background-color: #fff;
+	color: #000;
+    padding: 10px 20px;
+	margin-right: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-family: "Roboto Slab";
+    font-size: 16px;
+    border: 2px solid #a4e4e4;
+	border-radius: 5px;
+	-webkit-transition: background-color 0.4s, color 0.4s;
+    -moz-transition: background-color 0.4s, color 0.4s;
+    -o-transition: background-color 0.4s, color 0.4s;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.button:hover {
+	background-color: #80bebe;
+    color: #fff;
+	cursor: pointer;
+}
+
+.footer-copyright {
+	font-family: monospace;
+	position: absolute;
+    width: 100%;
+    line-height: 40px;
+    font-size: 10px;
+    bottom: 0;
+	text-align: center;
+}
+
+.footer-version {
+	color: blue;
+}
+
+
 

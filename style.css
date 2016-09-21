@@ -132,7 +132,7 @@ hr.default {
 
 .footer-copyright {
 	font-family: monospace;
-	position: absolute;
+	position: fixed;
     width: 100%;
     line-height: 40px;
     font-size: 10px;

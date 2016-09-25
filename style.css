@@ -1,10 +1,11 @@
-html {
+html, body {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
 	background-color: #d3fbfa;
 	font-family: "Ubuntu";
 	position: relative;
+	line-height: 1.0;
 	
 }
 
@@ -14,11 +15,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .big-panel {
 	background-color: #fff;
-	padding: 10px;
-	padding-bottom: 50px;
+	padding: 10px 20px 70px 20px;
 	border-radius: 5px;
 	box-shadow: 6px 5px #a4e4e4;
 	min-width: 700px;
+	max-width: 1300px;
 	margin: auto;
 }
 
@@ -32,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header__note {
-	font-size: 12px;
+	font-size: 10px;
 	color: #808080;
 }
 
@@ -42,11 +43,20 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 14px;
 }
 
+.warning {
+	font-family: "Roboto Slab";
+	font-size: 12px;
+}
+
 hr.default {
 	border: 0;
     height: 1px;
     background-color: #000;
 	margin: 15px 5px;
+}
+
+hr.wout-top {
+	margin-top: 3px;
 }
 
 #dictionary-select, #dictionary-input__text-area {
@@ -61,7 +71,7 @@ hr.default {
 	height: 50px;
 	max-width: 870px;
 	max-height: 400px;
-	margin: 0 2px 4px 0;
+	margin: 3px 2px 4px 0;
 }
 
 .dictionary-input__monospace {
@@ -143,6 +153,5 @@ hr.default {
 .footer-version {
 	color: blue;
 }
-
 
 

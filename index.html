@@ -5,6 +5,10 @@
     
     <title>Helpers! by Drakonkinst</title>
     
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=2">
@@ -13,16 +17,16 @@
     <div id="dictionary__container" class="big-panel">
 	
 	
-		<div id="dictionary">
+		<section id="dictionary">
 		
 			<header class="header dictionary-header">
 				<h1 class="header-title">Dictionary/Vocabulary Helper</h1>
 				<p>This script will open inputted words in an online dictionary. Useful for searching mass amounts of vocabulary words without dying in the process.</p>
 				<p class="header__warning dictionary-header__warning"><strong>WARNING : </strong>You may need to enable popups for this website to function correctly, as opening another window is considered a popup.</p>
-				<div class="header__note dictionary-header__note"><i>This site is a work in progress, and may not function to a suitable quality level. Use at your own discretion.</i></div>
+				<div class="header__note dictionary-header__note"><i>This site is a work in progress, as well as made by an amateur, and may not perform to a suitable quality level. Use at your own discretion.</i></div>
 			</header>
 			
-			<hr class="default">
+			<hr class="default wout-top">
 			
 			<div id="dictionary-selection__container">
 				<div id="dictionary-selection">
@@ -39,8 +43,8 @@
 			
 			<div id="dictionary-input__container">
 				<div id="dictionary-input">
-					<p>Enter your words here, separated by spaces. (ex: <span class="dictionary-input__monospace">one two three four</span>) Press Submit or the ENTER key to search the words.</p>
-					<p><i>Note: Using Dictionary.com or Merraim-Webster for multiple words will open multiple tabs in your browser.</i></p>
+					<p>Enter your words here, separated by spaces. (ex: <code>one two three four</code>) Press Submit or the &#8629; ENTER key to search the words.</p>
+					<div class="warning"><strong>Warning : </strong><i>Using Dictionary.com or Merraim-Webster for multiple words will open multiple tabs in your browser.</i></div>
 					<textarea id="dictionary-input__text-area" placeholder="Write your words here!" onkeypress="isEnter(event,'dictionary');"></textarea>
 					<button id="dictionary-input__submit" class="button" onclick="searchWords();">Submit</button>
 					<div id="dictionary-input__result"></div>
@@ -61,12 +65,12 @@
 				</div>
 			</div>
 			
-		</div>
+		</section>
 		
 		
 	</div>
 	<footer id="footer">
-			<div class="footer-copyright">Copyright &copy; Drakonkinst, 2016. Version <a href="https://github.com/Drakonkinst/helpers" class="footer-version">2.1</a>. Last updated 9/20/2016.</div>
+			<div class="footer-copyright">Copyright &copy; Drakonkinst, 2016. Version <a href="https://github.com/Drakonkinst/helpers" class="footer-version">Beta 2.2-01</a>. Last updated 9/24/2016.</div>
 		</footer>
     <script src="main.js?v=2"></script>
   </body>

@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="style.css?v=2">
   </head>
   <body>
-    <div id="dictionary__container" class="big-panel">
+    <div id="dictionary__container">
 	
 	
-		<section id="dictionary">
+		<section id="dictionary" class="big-panel">
 		
 			<header class="header dictionary-header">
 				<h1 class="header-title">Dictionary/Vocabulary Helper</h1>
@@ -30,11 +30,11 @@
 			
 			<div id="dictionary-selection__container">
 				<div id="dictionary-selection">
-					<p>Select a dictionary to use. Merraim-Webster is detailed, Ninjawords is fast, and Dictionary.com makes for a nice medium.</p>
+					<p>Select a dictionary to use. Merriam-Webster is detailed, Ninjawords is fast, and Dictionary.com makes for a nice medium.</p>
 					<select id="dictionary-select">
 						<option value="dictionary.com">Dictionary.com (www.dictionary.com)</option>
 						<option value="ninjawords">Ninjawords (www.ninjawords.com)</option>
-						<option value="merraim-webster">Merraim-Webster Dictionary and Thesaurus (www.merraim-webster.com)</option>
+						<option value="merriam-webster">Merriam-Webster Dictionary and Thesaurus (www.merriam-webster.com)</option>
 					</select>
 				</div>
 			</div>
@@ -43,8 +43,8 @@
 			
 			<div id="dictionary-input__container">
 				<div id="dictionary-input">
-					<p>Enter your words here, separated by spaces. (ex: <code>one two three four</code>) Press Submit or the &#8629; ENTER key to search the words.</p>
-					<div class="warning"><strong>Warning : </strong><i>Using Dictionary.com or Merraim-Webster for multiple words will open multiple tabs in your browser.</i></div>
+					<p>Enter your words here, separated by spaces. (ex: <code>one two three four</code>) Press <span class="button-icon">Submit</span> or the &#8629; ENTER key to search the words.</p>
+					<div class="warning"><strong>Warning : </strong><i>Using Dictionary.com or Merriam-Webster for multiple words will open multiple tabs in your browser.</i></div>
 					<textarea id="dictionary-input__text-area" placeholder="Write your words here!" onkeypress="isEnter(event,'dictionary');"></textarea>
 					<button id="dictionary-input__submit" class="button" onclick="searchWords();">Submit</button>
 					<div id="dictionary-input__result"></div>
@@ -60,6 +60,8 @@
 						<button id="vocab-word-list-1" class="button dictionary-import__import">Vocab Word List 1</button>
 						<button id="vocab-word-list-2" class="button dictionary-import__import">Vocab Word List 2</button>
 						<button id="vocab-word-list-3" class="button dictionary-import__import">Vocab Word List 3</button>
+						<br>
+						<button id="because-im-bored-1" class="button dictionary-import__import">Because I'm Bored</button>
 					</div>
 					<div id="dictionary-import__result"></div>
 				</div>
@@ -70,7 +72,7 @@
 		
 	</div>
 	<footer id="footer">
-			<div class="footer-copyright">Copyright &copy; Drakonkinst, 2016. Version <a href="https://github.com/Drakonkinst/helpers" class="footer-version">Beta 2.2-01</a>. Last updated 9/24/2016.</div>
+			<div class="footer-copyright">Copyright &copy; Drakonkinst, 2016. Version <a href="https://github.com/Drakonkinst/helpers" class="footer-version">Beta 2.2-03</a>. Last updated 9/24/2016.</div>
 		</footer>
     <script src="main.js?v=2"></script>
   </body>

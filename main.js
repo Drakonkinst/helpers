@@ -9,37 +9,37 @@ Hosted on Github : https://drakonkinst.github.io/helpers/
  
 /* Misc Helper Functions */
 
-function l(elementId)
+function l(el)
 {
-	return document.getElementById(elementId);
+	return document.getElementById(el);
 }
 
-function createElement(parentElement,elementType,elementText,elementId,elementClass,elementInnerHTML)
+function createElement(parentEl, elType, elText, elId, elClass, elInnerHTML)
 {
-	var newElement, newElementText;
-	newElement = document.createElement(elementType);
+	var newEl, newElText;
+	newEl = document.createElement(elType);
 	
-	if(elementText)
+	if(elText)
 	{
-		newElementText = document.createTextNode(elementText);
-		newElement.appendChild(newElementText);
+		newElText = document.createTextNode(elText);
+		newEl.appendChild(newElText);
 	}
-	if(elementId)
+	if(elId)
 	{
-		newElement.id = elementId;
+		newEl.id = elId;
 	}
-	if(elementClass)
+	if(elClass)
 	{
-		newElement.className = elementClass;
+		newEl.className = elClass;
 	}
-	if(elementInnerHTML)
+	if(elInnerHTML)
 	{
-		newElement.innerHTML = elementInnerHTML;
+		newEl.innerHTML = elInnerHTML;
 	}
-	if(!parentElement) {
-		return debug("ERROR : Element creation failed [parent="+parentElement+" type="+elementType+" text="+elementText+" id="+elementId+" class="+elementClass+"]");
+	if(!parentEl) {
+		return;
 	}
-	return parentElement.appendChild(newElement);
+	return parentEl.appendChild(newEl);
 }
 
 
@@ -49,13 +49,14 @@ function createElement(parentElement,elementType,elementText,elementId,elementCl
 var dictionaryList = [
 	["Dictionary.com", "Dictionary.com (www.dictionary.com)", "dictionary.com/browse/", false],
 	["Ninjawords", "Ninjawords (www.ninjawords.com)", "ninjawords.com/", true],
-	["Merraim-Webster Dictionary and Thesaurus", "Merraim-Webster Dictionary and Thesaurus (www.merraim-webster.com)", "merraim-webster.com/dictionary", false]
+	["Merriam-Webster Dictionary and Thesaurus", "Merriam-Webster Dictionary and Thesaurus (www.merriam-webster.com)", "merriam-webster.com/dictionary/", false]
 ];
 
 var wordListImports = [
 	["vocab-word-list-1", "acetic clandestine cosmic devolve effete ensemble exhume fusillade infraction lapidary mace meretricious opulent paregoric refractory tactile tocsin tribulation"],
 	["vocab-word-list-2", "animalcule collateral defray disconsolate emeritus equable foment impeach insipid larint maestro meteoric oscillate parole rheumy temporize trajectory vibrant"],
-	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"]
+	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"],
+	["because-im-bored-1", "a b c d e f g h i j k l m n o p q r s t u v w x y z"] //Fight me
 ];
 
 
@@ -66,7 +67,13 @@ function isEnter(windowEvent, loc)
 {
 	if(windowEvent.keyCode === 13)
 	{
-		searchWords();
+		switch(loc)
+		{
+			case 'dictionary':
+				searchWords();
+			break;
+			//More to be added
+		}
 	}
 }
 
@@ -88,9 +95,9 @@ function setDictResult(resultId,resultClass,resultInnerHTML,resultOnClick)
 
 function getDictName()
 {
-	var i, l, dictName;
-	l = document.getElementById("dictionary-select");
-	dictName = l.options[l.selectedIndex].innerHTML;
+	var i, el, dictName;
+	el = document.getElementById("dictionary-select");
+	dictName = el.options[el.selectedIndex].innerHTML;
 	for(i = 0; i < dictionaryList.length; i++)
 	{
 		if(dictName == dictionaryList[i][1])
@@ -104,7 +111,7 @@ function searchWords()
 {
 	if(document.getElementById("dictionary-input__text-area").value)
 	{
-		var i, wordList, selectedDict, siteId, siteName;
+		var i, wordList, selectedDict, siteId, siteName, isSpecial;
 		wordList = document.getElementById("dictionary-input__text-area").value.split(" ");
 		selectedDict = getDictName();
 		siteId = selectedDict[2];
@@ -112,7 +119,7 @@ function searchWords()
 		isSpecial = selectedDict[3];
 		if(!isSpecial)
 		{
-			setDictResult("dictionary-input__link","inverted-button","Search <strong>[ "+wordList.join(", ")+" ]</strong> in the dictionary <strong>"+siteName+"</strong>",function()
+			setDictResult("dictionary-input__link","button inverted-button","Search <strong>[ "+wordList.join(", ")+" ]</strong> in the dictionary <strong>"+siteName+"</strong>",function()
 			{
 				for(i = 0; i < wordList.length; i++)
 				{
@@ -122,7 +129,7 @@ function searchWords()
 			});
 		} else if(isSpecial)
 		{
-			setDictResult("dictionary-input__link","inverted-button","Search <strong>[ "+wordList.join(", ")+" ] </strong> in the dictionary <strong>"+siteName+"</strong>",function()
+			setDictResult("dictionary-input__link","button inverted-button","Search <strong>[ "+wordList.join(", ")+" ] </strong> in the dictionary <strong>"+siteName+"</strong>",function()
 			{
 				var str = "http://"+siteId+wordList[0];
 				for(i = 0; i < wordList.length - 1; i++)

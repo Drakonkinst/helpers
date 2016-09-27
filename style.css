@@ -12,6 +12,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+.big-panel__container {
+	margin-right: 20px;
+	margin-bottom: 50px;
+}
+
 .big-panel {
 	background-color: #fff;
 	padding: 10px 20px 70px 20px;
@@ -28,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-title {
 	border-bottom: 3px solid #a4e4e4;
+	display: inline-block;
 	max-width: 470px;
 	font-size: 2em;
 }
@@ -38,9 +44,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header__warning {
-	border: 1px solid black;
+	border: 1px solid #ff8080;
 	padding: 10px;
 	font-size: 0.875em;
+	max-width: 1000px;
+	background-color: #ffcccc;
 }
 
 .warning {
@@ -57,10 +65,6 @@ hr.default {
 
 hr.wout-top {
 	margin-top: 3px;
-}
-
-#dictionary__container {
-	margin-right: 20px;
 }
 
 #dictionary-select, #dictionary-input__text-area {
@@ -122,6 +126,7 @@ hr.wout-top {
 
 .inverted-button {
 	background-color: #80bebe;
+	font-size: 1.125em;
 	bottom: 16px;
 	color: #fff;
 }

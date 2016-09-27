@@ -46,6 +46,11 @@ function createElement(parentEl, elType, elText, elId, elClass, elInnerHTML)
 
 /* Initialization */
 
+var preferences = { //for developer use only, for now 
+	beta: false
+	//More to be added
+}
+
 var dictionaryList = [
 	["Dictionary.com", "Dictionary.com (www.dictionary.com)", "dictionary.com/browse/", false],
 	["Ninjawords", "Ninjawords (www.ninjawords.com)", "ninjawords.com/", true],
@@ -55,8 +60,7 @@ var dictionaryList = [
 var wordListImports = [
 	["vocab-word-list-1", "acetic clandestine cosmic devolve effete ensemble exhume fusillade infraction lapidary mace meretricious opulent paregoric refractory tactile tocsin tribulation"],
 	["vocab-word-list-2", "animalcule collateral defray disconsolate emeritus equable foment impeach insipid larint maestro meteoric oscillate parole rheumy temporize trajectory vibrant"],
-	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"],
-	["because-im-bored-1", "a b c d e f g h i j k l m n o p q r s t u v w x y z"] //Fight me
+	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"]
 ];
 
 
@@ -168,6 +172,10 @@ function Launch()
 				}
 			}
 		};
+	}
+	if(!preferences.beta)
+	{
+		l("beta__container").style.visibility = "hidden";
 	}
 }
 Launch();

@@ -6,7 +6,7 @@
     <title>Helpers! by Drakonkinst</title>
     
 	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<![endif]-->
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="style.css?v=2">
   </head>
   <body>
-    <div id="dictionary__container">
-	
-	
+  
+    <div id="dictionary__container" class="big-panel__container">
 		<section id="dictionary" class="big-panel">
 		
 			<header class="header dictionary-header">
 				<h1 class="header-title">Dictionary/Vocabulary Helper</h1>
 				<p>This script will open inputted words in an online dictionary. Useful for searching mass amounts of vocabulary words without dying in the process.</p>
-				<p class="header__warning dictionary-header__warning"><strong>WARNING : </strong>You may need to enable popups for this website to function correctly, as opening another window is considered a popup.</p>
+				<p class="header__warning dictionary-header__warning"><strong>WARNING : </strong>A computer or laptop is recommended for using this website. Phones and other mobile devices may not work as well.</p>
+				<p class="header__warning dictionary-header__warning"><strong>TROUBLESHOOTING : </strong>If only one window shows up after entering multiple words, ensure that pop-ups are disabled for this website.</p>
 				<div class="header__note dictionary-header__note"><i>This site is a work in progress, as well as made by an amateur, and may not perform to a suitable quality level. Use at your own discretion.</i></div>
 			</header>
 			
@@ -44,7 +44,7 @@
 			<div id="dictionary-input__container">
 				<div id="dictionary-input">
 					<p>Enter your words here, separated by spaces. (ex: <code>one two three four</code>) Press <span class="button-icon">Submit</span> or the &#8629; ENTER key to search the words.</p>
-					<div class="warning"><strong>Warning : </strong><i>Using Dictionary.com or Merriam-Webster for multiple words will open multiple tabs in your browser.</i></div>
+					<div class="warning"><strong>Warning : </strong><i>Using Dictionary.com or Merriam-Webster for multiple words will open multiple tabs in your browser. It may be a good idea to search only a few words at a time.</i></div>
 					<textarea id="dictionary-input__text-area" placeholder="Write your words here!" onkeypress="isEnter(event,'dictionary');"></textarea>
 					<button id="dictionary-input__submit" class="button" onclick="searchWords();">Submit</button>
 					<div id="dictionary-input__result"></div>
@@ -60,20 +60,35 @@
 						<button id="vocab-word-list-1" class="button dictionary-import__import">Vocab Word List 1</button>
 						<button id="vocab-word-list-2" class="button dictionary-import__import">Vocab Word List 2</button>
 						<button id="vocab-word-list-3" class="button dictionary-import__import">Vocab Word List 3</button>
-						<br>
-						<button id="because-im-bored-1" class="button dictionary-import__import">Because I'm Bored</button>
+						<!-- New word lists are added here -->
 					</div>
 					<div id="dictionary-import__result"></div>
 				</div>
 			</div>
 			
 		</section>
-		
-		
 	</div>
+	
+	
+	<div id="beta__container" class="big-panel__container">
+		<section id="beta" class="big-panel">
+			
+			<header class="header beta-header">
+				<h1 class="header-title">Beta Testing</h1>
+			</header>
+			
+		</section>
+	</div>
+	
+	
+	
 	<footer id="footer">
-			<div class="footer-copyright">Copyright &copy; Drakonkinst, 2016. Version <a href="https://github.com/Drakonkinst/helpers" class="footer-version">Beta 2.2-03</a>. Last updated 9/24/2016.</div>
-		</footer>
+	
+		<div class="footer-copyright">Copyright &copy; Drakonkinst, 2016. Version <a href="https://github.com/Drakonkinst/helpers" class="footer-version">Beta 2.2-05</a>. Last updated 9/26/2016.</div>
+		
+	</footer>
+	
     <script src="main.js?v=2"></script>
+	
   </body>
 </html>

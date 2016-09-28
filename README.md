@@ -1,8 +1,8 @@
 # Helpers!
 *Created by Drakonkinst*
-**Last Updated: 9/24/2016**
+**Last Updated: 9/27/2016**
 
-Version 2.1 (Beta Version 2.2-01)
+Version 2.2 (Beta Version 2.2)
 
 Some random scripts to make life easier.
 

@@ -44,6 +44,7 @@ function createElement(parentEl, elType, elText, elId, elClass, elInnerHTML)
 
 
 
+
 /* Initialization */
 
 var preferences = { //for developer use only, for now 
@@ -62,6 +63,21 @@ var wordListImports = [
 	["vocab-word-list-2", "animalcule collateral defray disconsolate emeritus equable foment impeach insipid larint maestro meteoric oscillate parole rheumy temporize trajectory vibrant"],
 	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"]
 ];
+
+/* Internal Functions */
+
+function refreshPrefs()
+{
+	var el = l("beta__container");
+	if(!preferences.beta)
+	{
+		el.style.visibility = "hidden";
+	} else 
+	{
+		el.style.visibility = "visible";
+	}
+}
+
 
 
 
@@ -88,6 +104,13 @@ function setDictResult(resultId,resultClass,resultInnerHTML,resultOnClick)
 	resultInnerHTML = resultInnerHTML || "";
 	l("dictionary-input__result").innerHTML = "";
 	createElement(l("dictionary-input__result"),"span","",resultId,resultClass,resultInnerHTML);
+	if(resultClass === "dictionary-input__fail")
+	{
+		l("dictionary-input__result").style.marginTop = "-15px";
+	} else
+	{
+		l("dictionary-input__result").style.marginTop = 0;
+	}
 	if(resultOnClick)
 	{
 		l(resultId).onclick = function()
@@ -173,10 +196,20 @@ function Launch()
 			}
 		};
 	}
-	if(!preferences.beta)
+	setTimeout(function()
 	{
-		l("beta__container").style.visibility = "hidden";
-	}
+		var el = l("mobile-warning");
+		if (!(screen.width < 480) || !(screen.height < 480))
+		{
+			el.style.visibility = "hidden";
+			el.style.display = "none";
+		} else
+		{
+			el.style.visibility = "visible";
+			el.style.display = "block";
+		}
+	}, 100);
+	refreshPrefs();
 }
 Launch();
 

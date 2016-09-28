@@ -1,24 +1,29 @@
-html {
+html, body {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
 	background-color: #d3fbfa;
 	font-family: "Ubuntu";
 	position: relative;
-	
+	line-height: 1.0;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+.big-panel__container {
+	margin-right: 20px;
+	margin-bottom: 50px;
+}
+
 .big-panel {
 	background-color: #fff;
-	padding: 10px;
-	padding-bottom: 50px;
+	padding: 10px 20px 70px 20px;
 	border-radius: 5px;
 	box-shadow: 6px 5px #a4e4e4;
 	min-width: 700px;
+	max-width: 1300px;
 	margin: auto;
 }
 
@@ -28,18 +33,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-title {
 	border-bottom: 3px solid #a4e4e4;
+	display: inline-block;
 	max-width: 470px;
+	font-size: 2em;
 }
 
 .header__note {
-	font-size: 12px;
+	font-size: 0.625em;
 	color: #808080;
 }
 
 .header__warning {
-	border: 1px solid black;
+	border: 1px solid #ff8080;
 	padding: 10px;
-	font-size: 14px;
+	font-size: 0.875em;
+	max-width: 1000px;
+	background-color: #ffcccc;
+	-webkit-transition: background-color 0.4s, color 0.4s;
+    -moz-transition: background-color 0.4s, color 0.4s;
+    -o-transition: background-color 0.4s, color 0.4s;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.header__warning:hover {
+	background-color: #fff;
+	cursor: default;
+}
+
+.warning {
+	font-family: "Roboto Slab";
+	font-size: 0.75em;
 }
 
 hr.default {
@@ -47,6 +70,10 @@ hr.default {
     height: 1px;
     background-color: #000;
 	margin: 15px 5px;
+}
+
+hr.wout-top {
+	margin-top: 3px;
 }
 
 #dictionary-select, #dictionary-input__text-area {
@@ -61,7 +88,7 @@ hr.default {
 	height: 50px;
 	max-width: 870px;
 	max-height: 400px;
-	margin: 0 2px 4px 0;
+	margin: 3px 2px 0 0;
 }
 
 .dictionary-input__monospace {
@@ -69,40 +96,15 @@ hr.default {
 }
 
 #dictionary-input__result {
-	font-size: 14px;
+	font-size: 0.875em;
 }
 
 #dictionary-input__submit {
-	bottom: 20px;
+	bottom: 16px;
 }
 
 .dictionary-input__fail {
 	color: #ff0000;
-}
-
-.inverted-button {
-	position: relative;
-	background-color: #80bebe;
-	bottom: 16px;
-	color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-	font-family: "Roboto Slab";
-    font-size: 16px;
-    border: 2px solid #a4e4e4;
-	border-radius: 5px;
-	-webkit-transition: background-color 0.4s, color 0.4s;
-    -moz-transition: background-color 0.4s, color 0.4s;
-    -o-transition: background-color 0.4s, color 0.4s;
-    transition: background-color 0.4s, color 0.4s;
-}
-
-.inverted-button:hover {
-	background-color: #fff;
-	color: #000;
-	cursor: pointer;
 }
 
 .button {
@@ -111,11 +113,12 @@ hr.default {
 	color: #000;
     padding: 10px 20px;
 	margin-right: 3px;
+	margin-bottom: 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 	font-family: "Roboto Slab";
-    font-size: 16px;
+    font-size: 1em;
     border: 2px solid #a4e4e4;
 	border-radius: 5px;
 	-webkit-transition: background-color 0.4s, color 0.4s;
@@ -130,19 +133,38 @@ hr.default {
 	cursor: pointer;
 }
 
+.inverted-button {
+	background-color: #80bebe;
+	font-size: 1.125em;
+	bottom: 16px;
+	color: #fff;
+}
+
+.inverted-button:hover {
+	background-color: #fff;
+	color: #000;
+}
+
+.button-icon {
+	border: 1px solid #000;
+	border-radius: 5px;
+	font-family: "Roboto Slab";
+	font-size: 0.75em;
+	padding: 5px;
+}
+
 .footer-copyright {
 	font-family: monospace;
 	position: fixed;
     width: 100%;
-    line-height: 40px;
-    font-size: 10px;
-    bottom: 0;
+    line-height: 1.2;
+    font-size: 0.625em;
+    bottom: 10px;
 	text-align: center;
 }
 
 .footer-version {
 	color: blue;
 }
-
 
 

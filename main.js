@@ -61,7 +61,10 @@ var dictionaryList = [
 var wordListImports = [
 	["vocab-word-list-1", "acetic clandestine cosmic devolve effete ensemble exhume fusillade infraction lapidary mace meretricious opulent paregoric refractory tactile tocsin tribulation"],
 	["vocab-word-list-2", "animalcule collateral defray disconsolate emeritus equable foment impeach insipid larint maestro meteoric oscillate parole rheumy temporize trajectory vibrant"],
-	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"]
+	["vocab-word-list-3", "asphyxiate cornucopia desist effeminate empathy evanescent frieze indite itinerary lien maxim motif palfrey phalanx svelte tertiary trenchant"],
+	["vocab-word-list-4", "abortive anomalous captious coadjutor disjointed educe empirical exculpate firmament iridescent macerate mores norm optimum probity probity rostrum turpitude"],
+	["vocab-word-list-5", "accolade antipathy carmine coalesce dissimulate egotism erupt felicitous inflect jurist meander nemesis novitiate outmoded protocol specious vernacular"],
+	["vocab-word-list-6", "agenda apoplectic circumspect denude dote emote exacerbate fey insatiable laity mordant neuter opprobrium precipitous reinstate throes vicissitudes"]
 ];
 
 /* Internal Functions */

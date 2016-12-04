@@ -1,4 +1,6 @@
-html, body {
+* { box-sizing: border-box; }
+
+body {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
@@ -7,10 +9,9 @@ html, body {
 	position: relative;
 	line-height: 1.0;
 }
+body.christmas { background-color: #c1c1c1; }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-}
+h1, h2, h3, h4, h5, h6 { margin: 0; }
 
 .big-panel__container {
 	margin-right: 20px;
@@ -26,10 +27,12 @@ h1, h2, h3, h4, h5, h6 {
 	max-width: 1300px;
 	margin: auto;
 }
-
-.header {
-	font-family: "Roboto Slab";
+.christmas .big-panel {
+	background-color: #b3ee99;
+	box-shadow: 6px 5px #97050f;
 }
+
+.header { font-family: "Roboto Slab"; }
 
 .header-title {
 	border-bottom: 3px solid #a4e4e4;
@@ -37,6 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 	max-width: 470px;
 	font-size: 2em;
 }
+.christmas .header-title { border-bottom-color: #97050f; }
 
 .header__note {
 	font-size: 0.625em;
@@ -59,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #fff;
 	cursor: default;
 }
+.christmas .header__warning:hover { background-color: #b3ee99; }
 
 .warning {
 	font-family: "Roboto Slab";
@@ -72,15 +77,17 @@ hr.default {
 	margin: 15px 5px;
 }
 
-hr.wout-top {
-	margin-top: 3px;
-}
+hr.wout-top { margin-top: 3px; }
 
 #dictionary-select, #dictionary-input__text-area {
 	border: 2px solid #a4e4e4;
+	background-color: #fff;
 	border-radius: 5px;
 	font-family: monospace;
-	
+}
+.christmas #dictionary-select, .christmas #dictionary-input__text-area {
+	border-color: #97050f;
+	background-color: #bfffa3;
 }
 
 #dictionary-input__text-area {
@@ -91,21 +98,13 @@ hr.wout-top {
 	margin: 3px 2px 0 0;
 }
 
-.dictionary-input__monospace {
-	font-family: monospace;
-}
+.dictionary-input__monospace { font-family: monospace; }
+.dictionary-input__fail { color: #ff0000; }
 
-#dictionary-input__result {
-	font-size: 0.875em;
-}
+#dictionary-input__result { font-size: 0.875em; }
+#dictionary-input__submit { bottom: 16px; }
 
-#dictionary-input__submit {
-	bottom: 16px;
-}
 
-.dictionary-input__fail {
-	color: #ff0000;
-}
 
 .button {
 	position: relative;
@@ -126,12 +125,17 @@ hr.wout-top {
     -o-transition: background-color 0.4s, color 0.4s;
     transition: background-color 0.4s, color 0.4s;
 }
+.christmas .button {
+	background-color: #7fcd5c;
+	border-color: #97050f;
+}
 
 .button:hover {
 	background-color: #80bebe;
     color: #fff;
 	cursor: pointer;
 }
+.christmas .button:hover { background-color: #0b5a00; }
 
 .inverted-button {
 	background-color: #80bebe;
@@ -139,18 +143,25 @@ hr.wout-top {
 	bottom: 16px;
 	color: #fff;
 }
+.christmas .inverted-button { background-color: #0b5a00; }
 
 .inverted-button:hover {
 	background-color: #fff;
 	color: #000;
 }
+.christmas .inverted-button:hover { background-color: #7fcd5c; }
 
 .button-icon {
 	border: 1px solid #000;
+	background-color: #fff;
 	border-radius: 5px;
 	font-family: "Roboto Slab";
 	font-size: 0.75em;
 	padding: 5px;
+}
+.christmas .button-icon {
+	border-color: #97050f;
+	background-color: #7fcd5c;
 }
 
 .footer-copyright {
@@ -163,10 +174,31 @@ hr.wout-top {
 	text-align: center;
 }
 
-.footer-version {
-	color: blue;
+.footer-version { color: blue; }
+
+.annotations { font-size: 0.25em; }
+
+
+/* Seasonal Extra :) */
+.christmas-snowflake { display: none }
+.christmas .christmas-snowflake {
+	display: block;
+	position: absolute;
+    left: 0;
+    top: 0;
 }
 
-.annotations {
-	font-size: 0.25em;
+.christmas .snowflake {
+	padding-left: 15px;
+    font-family: Cambria, Georgia, serif;
+	text-shadow: 1px 1px 3px #000;
+    font-size: 14px;
+    line-height: 24px;
+    position: fixed;
+    color: #FFFFFF;
+    user-select: none;
+    z-index: 1000;
 }
+
+.christmas .snowflake:hover { cursor: default; }
+
